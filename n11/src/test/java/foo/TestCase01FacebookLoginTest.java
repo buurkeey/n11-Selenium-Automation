@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class FacebookLoginTest {
+public class TestCase01FacebookLoginTest {
 
 		WebDriver driver;
 		
@@ -21,35 +21,47 @@ public class FacebookLoginTest {
 		}
 		
 		@Test
-		public void LogInTestCase(){
+		public void LogInTestCase() throws InterruptedException{
 			
 			HomePage homepage = new HomePage(driver);
 			LogInPage loginpage = new LogInPage(driver);
-					
-				homepage.openURL();
+			FacebookPage facebookpage = new FacebookPage(driver);		
+				
+			homepage.openURL();
+			driver.manage().window().maximize();
+			homepage.verifyHomePage();
 				homepage.clickHesabim();
+				loginpage.verifyLoginPage();
 				loginpage.clickFbLogin();
 				
 				//Store the current window handle
 				String winHandleBefore = driver.getWindowHandle();
-
 				//Perform the click operation that opens new window
-
 				//Switch to new window opened
 				for(String winHandle : driver.getWindowHandles()){
 				    driver.switchTo().window(winHandle);
 				}
-
 				// Perform the actions on new window
+				
+				
+				
+				facebookpage.typeFbEmail("n11testhesabi@outlook.com");
+				facebookpage.typeFbPassword("n11135790");
+				facebookpage.clickFbLoginBtn();
+				
+				
 
 				//Close the new window, if that window no more required
-				driver.close();
+				//driver.close();
 
 				//Switch back to original browser (first window)
 
 				driver.switchTo().window(winHandleBefore);
 
 				//continue with original browser (first window)
+				
+				
+				homepage.verifyHomePage();
 			
 		}	
 
