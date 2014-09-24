@@ -28,11 +28,6 @@ public class TestCase02HomePage {
 				 homePage.openURL();
 				 driver.manage().window().maximize();
 				 homePage.verifyHomePage();
-		
-	}
+		}
 	
-	
-	
-			 
-
 }

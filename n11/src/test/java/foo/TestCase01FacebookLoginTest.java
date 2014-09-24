@@ -27,12 +27,12 @@ public class TestCase01FacebookLoginTest {
 			LogInPage loginpage = new LogInPage(driver);
 			FacebookPage facebookpage = new FacebookPage(driver);		
 				
-			homepage.openURL();
-			driver.manage().window().maximize();
-			homepage.verifyHomePage();
-				homepage.clickHesabim();
-				loginpage.verifyLoginPage();
-				loginpage.clickFbLogin();
+					homepage.openURL();
+					driver.manage().window().maximize();
+					homepage.verifyHomePage();
+					homepage.clickHesabim();
+					loginpage.verifyLoginPage();
+					loginpage.clickFbLogin();
 				
 				//Store the current window handle
 				String winHandleBefore = driver.getWindowHandle();
@@ -43,25 +43,17 @@ public class TestCase01FacebookLoginTest {
 				}
 				// Perform the actions on new window
 				
-				
-				
-				facebookpage.typeFbEmail("n11testhesabi@outlook.com");
-				facebookpage.typeFbPassword("n11135790");
-				facebookpage.clickFbLoginBtn();
-				
-				
-
-				//Close the new window, if that window no more required
-				//driver.close();
+					facebookpage.typeFbEmail("n11testhesabi@outlook.com");
+					facebookpage.typeFbPassword("n11135790");
+					facebookpage.clickFbLoginBtn();
 
 				//Switch back to original browser (first window)
 
-				driver.switchTo().window(winHandleBefore);
+					driver.switchTo().window(winHandleBefore);
 
 				//continue with original browser (first window)
-				
-				
-				homepage.verifyHomePage();
+					Thread.sleep(5000);
+					homepage.verifyHomePage();
 			
 		}	
 
