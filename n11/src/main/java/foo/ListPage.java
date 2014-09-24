@@ -22,26 +22,44 @@ public class ListPage {
 	@FindBy(css = ".resultText h1:nth-of-type(1)")
 	private WebElement verifylistpage;
 	
-	@FindBy(linkText = "http://www.n11.com/arama?q=samsung&pg=2")
+	@FindBy(css = ".productArea .pagination a:nth-of-type(2)")
 	private WebElement secondlistpage;
 	
 	/*@FindBy(css = ".header .currentPage")
 	private WebElement secondlistpageverify;*/
+	
+	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn")
+	private WebElement follow;
+	
+	@FindBy(css = ".myAccount .username")
+	private WebElement accountbtn;
 	
 	public ListPage verifyPage() {
 		Assert.assertEquals("Samsung", verifylistpage.getText());
 		return this;		
 	}
 	
-	public ListPage click2ndPage() {
+	public ListPage clicksecondPage() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(secondlistpage));
 		secondlistpage.click();
 		return this;		
 	}
 	
-	/*public ListPage verify2ndPage() {
-		Assert.assertEquals("2", secondlistpageverify.get);*/
-		
+	public ListPage clickFavouriteBtn() {
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(follow));
+		follow.click();
+		return this;		
 	}
+	
+	/*public ListPage verify2ndPage() {
+		Assert.assertEquals("2", secondlistpageverify.getAttribute(name));
+		return this;
+	}*/
+	
+	public AccountPage clickMyAccountFromListPage() {
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(accountbtn));
+		accountbtn.click();
+		return new AccountPage(driver);
+	}	
 
 }
