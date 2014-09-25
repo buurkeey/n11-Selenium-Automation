@@ -20,7 +20,7 @@ public class AccountPage extends HomePage {
 		PageFactory.initElements(myDriver, this);
 	}
 	
-	@FindBy(css = "#myNavigation .active")
+	@FindBy(className = ".active")
 	private WebElement myfavourites;
 	
 	//verify
@@ -37,7 +37,7 @@ public class AccountPage extends HomePage {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(myfavourites));
 		myfavourites.click();
 		return this;		
-	}
+	}  
 	
 	public AccountPage verifyPage() {
 		Assert.assertEquals("Sipariş Durumu", accountpageverify.getText());

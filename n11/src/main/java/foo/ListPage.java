@@ -35,6 +35,7 @@ public class ListPage extends HomePage{
 	@FindBy(css = ".myAccount .username")
 	private WebElement accountbtn;
 	
+	
 	public ListPage verifyPage() {
 		Assert.assertEquals("Samsung", verifylistpage.getText());
 		return this;		
