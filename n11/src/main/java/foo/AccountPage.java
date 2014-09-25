@@ -10,16 +10,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AccountPage {
+public class AccountPage extends HomePage {
 	
 	WebDriver driver;
 	
 	public AccountPage(WebDriver myDriver){
+		super(myDriver);
 		driver = myDriver;
 		PageFactory.initElements(myDriver, this);
 	}
 	
-	@FindBy(linkText = "favorilerim")
+	@FindBy(css = "#myNavigation .active")
 	private WebElement myfavourites;
 	
 	//verify

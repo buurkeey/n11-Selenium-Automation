@@ -13,6 +13,7 @@ public class TestCase03LogInTest {
 	@Before
 	public void setUp(){
 		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 	}
 	
 	@After
@@ -22,17 +23,16 @@ public class TestCase03LogInTest {
 	
 	@Test
 	public void LogInTestCase(){
-		
-		HomePage homePage = new HomePage(driver);
-		LogInPage loginPage = new LogInPage(driver);
+			
+		Factory factory = new Factory(driver);
 				
-				homePage.openURL();
-				driver.manage().window().maximize();
-				homePage.clickHesabim();
-				loginPage.typeEmail("n11buraktest@test.com");
-				loginPage.typePassword("n11135790");
-				loginPage.clickLogInBtn();	
-				homePage.verifyHomePage();
+				factory.homePage()
+					   .openURL()
+					   .clickHesabim()
+					   .typeEmail("n11buraktest@test.com")
+					   .typePassword("n11135790")
+					   .clickLogInBtn()
+					   .verifyHomePage();		
 		
 	}
 	

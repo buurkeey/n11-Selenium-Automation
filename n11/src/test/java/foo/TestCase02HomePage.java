@@ -13,6 +13,7 @@ public class TestCase02HomePage {
 	@Before
 	public void setUp(){
 		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 	}
 	
 	@After
@@ -26,7 +27,6 @@ public class TestCase02HomePage {
 		HomePage homePage = new HomePage(driver);
 		
 				 homePage.openURL();
-				 driver.manage().window().maximize();
 				 homePage.verifyHomePage();
 		}
 	

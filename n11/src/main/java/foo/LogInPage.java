@@ -12,11 +12,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.thoughtworks.selenium.Selenium;
 import com.thoughtworks.selenium.webdriven.commands.SeleniumSelect;
 
-public class LogInPage {
+public class LogInPage extends HomePage {
 	
 	WebDriver driver;
 	
 	public LogInPage(WebDriver myDriver) {
+		super(myDriver);
 		driver = myDriver;
 		PageFactory.initElements(myDriver, this);
 	}

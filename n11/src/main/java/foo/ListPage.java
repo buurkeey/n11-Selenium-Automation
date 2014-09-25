@@ -9,11 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ListPage {
+public class ListPage extends HomePage{
 	
 	WebDriver driver;
 	
 	public ListPage(WebDriver myDriver){
+		super(myDriver);
 		driver = myDriver;
 		PageFactory.initElements(myDriver, this);
 	}

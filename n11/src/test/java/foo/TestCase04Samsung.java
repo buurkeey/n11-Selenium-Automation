@@ -15,7 +15,8 @@ public class TestCase04Samsung {
 	
 	@Before
 	public void setUp(){
-		driver = new FirefoxDriver();		
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 	}
 	
 	@After
@@ -32,7 +33,6 @@ public class TestCase04Samsung {
 		AccountPage accountPage = new AccountPage(driver);
 		
 				 homePage.openURL();
-				 driver.manage().window().maximize();
 				 homePage.verifyHomePage();
 				 homePage.clickHesabim();
 				 loginPage.verifyLoginPage();
@@ -43,26 +43,23 @@ public class TestCase04Samsung {
 				 homePage.typeSearhData("samsung");
 				 homePage.clickSearchBtn();
 				 listPage.verifyPage();
-				 
 				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
 				 Thread.sleep(2000);
-				 
 				 listPage.clicksecondPage();
 				 
 				//buraya 2.sayfada olunduğunun assertü eklenecek
 				 
 				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,250);");
 				 Thread.sleep(2000);
-				 
 				 listPage.clickFavouriteBtn();
 				 listPage.clickMyAccountFromListPage();
 				 accountPage.verifyPage();
-				 accountPage.clickMyFavourites();
+				 accountPage.clickMyFavourites();	//bu satır dahil sonrası çalışmıyor!!!!!!!!
 				 
 				 //buraya favorilere eklenen ürünle favorilerimdeki ürünün aynı olduğunun assertü konulacak
 				 
-		//		 accountPage.clickCancelFavourite();
-		//		 accountPage.verifyNonFavouriteProduct();
+				 accountPage.clickCancelFavourite();
+				 accountPage.verifyNonFavouriteProduct();
 		
 	}
 
