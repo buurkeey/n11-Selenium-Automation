@@ -3,6 +3,7 @@ package foo;
 import junit.framework.Assert;
 
 import org.apache.regexp.recompile;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,6 +53,12 @@ public class AccountPage extends HomePage {
 	
 	public AccountPage verifyNonFavouriteProduct() {
 		Assert.assertEquals("İzlediğiniz bir ürün bulunmamaktadır.", verifynoproduct.getText());
+		return this;		
+	}
+	
+	public AccountPage getProductURLFromAccount() {
+		String secondlink = driver.findElement(By.xpath(".//*[@id='watchList']/tbody/tr/td[3]/p/a")).getAttribute("href");
+		System.out.println(secondlink);
 		return this;		
 	}
 

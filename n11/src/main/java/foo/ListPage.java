@@ -2,6 +2,7 @@ package foo;
 
 import junit.framework.Assert;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +30,7 @@ public class ListPage extends HomePage{
 	/*@FindBy(xpath = ".//*[@id='contentListing']/div/div/div[2]/section/div[1]/div[2]/div/input")
 	private WebElement secondlistpageverify;*/
 	
-	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn")
+	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn") 
 	private WebElement follow;
 	
 	@FindBy(css = ".myAccount .username")
@@ -63,5 +64,12 @@ public class ListPage extends HomePage{
 		accountbtn.click();
 		return new AccountPage(driver);
 	}	
-
+	
+	public ListPage getProductURLFromList() {
+		String firstlink = driver.findElement(By.cssSelector("#view li:nth-of-type(3) .oldPrice")).getAttribute("href");
+		System.out.println(firstlink);
+		return this;
+	}
+	
+	
 }

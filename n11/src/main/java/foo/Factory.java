@@ -1,5 +1,8 @@
 package foo;
 
+import junit.framework.Assert;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Factory {
@@ -29,5 +32,5 @@ public class Factory {
 	public LogInPage logInPage() {
 		return new LogInPage(driver);		
 	}
-	
+		
 }
