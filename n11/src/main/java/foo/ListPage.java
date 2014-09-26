@@ -26,7 +26,7 @@ public class ListPage extends HomePage{
 	@FindBy(css = ".productArea .pagination a:nth-of-type(2)")
 	private WebElement secondlistpage;
 	
-	/*@FindBy(css = ".header .currentPage")
+	/*@FindBy(xpath = ".//*[@id='contentListing']/div/div/div[2]/section/div[1]/div[2]/div/input")
 	private WebElement secondlistpageverify;*/
 	
 	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn")
@@ -53,10 +53,10 @@ public class ListPage extends HomePage{
 		return this;		
 	}
 	
-	/*public ListPage verifysecondPage() {
-		Assert.assertEquals("2", secondlistpageverify.getAttribute(name));
+	/*public ListPage verifySecondPage() {
+		Assert.assertEquals("2", secondlistpageverify.getText());
 		return this;
-	}*/
+	}	*/
 	
 	public AccountPage clickMyAccountFromListPage() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(accountbtn));

@@ -45,6 +45,7 @@ public class TestCase04Samsung {
 				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
 				 Thread.sleep(2000);
 				 listPage.clicksecondPage();
+				 Thread.sleep(5000);
 				 
 				//buraya 2.sayfada olunduğunun assertü eklenecek
 				 
@@ -53,8 +54,8 @@ public class TestCase04Samsung {
 				 listPage.clickFavouriteBtn();
 				 listPage.clickMyAccountFromListPage();
 				 accountPage.verifyAccountPage();
-				 accountPage.clickMyFavourites();	//bu satır dahil sonrası çalışmıyor!!!!!!!!
-				 
+				 accountPage.clickMyFavourites();
+				 				 
 				 //buraya favorilere eklenen ürünle favorilerimdeki ürünün aynı olduğunun assertü konulacak
 				 
 				 accountPage.clickCancelFavourite();

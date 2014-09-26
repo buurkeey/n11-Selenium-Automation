@@ -38,8 +38,8 @@ public class HomePage {
 	@FindBy(linkText = "//www.n11.com/hesabim")
 	private WebElement accountbtn;
 	
-	/*@FindBy(css = ".username")
-	private WebDriver verifyFbReturn;*/
+	/*					@FindBy(xpath = ".//*[@id='header']/div/div/div[2]/div[2]/div[1]/div[1]/a[2]")
+						private WebDriver verifyFbLogIn;														*/
 	
 	public LogInPage clickHesabim() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(loginbtn));
@@ -65,10 +65,11 @@ public class HomePage {
 		return new ListPage(driver);
 	}
 	
-	/*public HomePage verify() {
-		Assert.assertEquals("n11testhesabi@outlook.com", verifyFbReturn.getText());
-		return this;
-	}*/
+	/*		public HomePage verifyFbLoggedIn() {
+			Assert.assertEquals("Burak Test", verifyFbLogIn.gettext());
+			return this;
+			
+	}		*/
 	
 	public HomePage clickMyAccount() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(accountbtn));
