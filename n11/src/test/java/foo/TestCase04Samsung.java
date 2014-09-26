@@ -10,7 +10,6 @@ import org.openqa.selenium.JavascriptExecutor;
 public class TestCase04Samsung {
 	
 	WebDriver driver;
-
 	JavascriptExecutor jse = (JavascriptExecutor)driver;	
 	
 	@Before
@@ -42,7 +41,7 @@ public class TestCase04Samsung {
 				 homePage.verifyHomePage();
 				 homePage.typeSearhData("samsung");
 				 homePage.clickSearchBtn();
-				 listPage.verifyPage();
+				 listPage.verifyFirstListPage();
 				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
 				 Thread.sleep(2000);
 				 listPage.clicksecondPage();
@@ -53,7 +52,7 @@ public class TestCase04Samsung {
 				 Thread.sleep(2000);
 				 listPage.clickFavouriteBtn();
 				 listPage.clickMyAccountFromListPage();
-				 accountPage.verifyPage();
+				 accountPage.verifyAccountPage();
 				 accountPage.clickMyFavourites();	//bu satır dahil sonrası çalışmıyor!!!!!!!!
 				 
 				 //buraya favorilere eklenen ürünle favorilerimdeki ürünün aynı olduğunun assertü konulacak

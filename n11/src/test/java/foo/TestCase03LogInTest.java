@@ -28,6 +28,7 @@ public class TestCase03LogInTest {
 				
 				factory.homePage()
 					   .openURL()
+					   .verifyHomePage()
 					   .clickHesabim()
 					   .typeEmail("n11buraktest@test.com")
 					   .typePassword("n11135790")

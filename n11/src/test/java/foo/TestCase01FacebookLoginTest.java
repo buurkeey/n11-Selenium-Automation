@@ -38,7 +38,9 @@ public class TestCase01FacebookLoginTest {
 				for(String winHandle : driver.getWindowHandles()){
 				    driver.switchTo().window(winHandle);
 				}
-				
+					
+					Thread.sleep(5000);
+					facebookpage.verifyFacebookPage();
 					facebookpage.typeFbEmail("n11testhesabi@outlook.com");
 					facebookpage.typeFbPassword("n11135790");
 					facebookpage.clickFbLoginBtn();

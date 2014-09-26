@@ -20,17 +20,17 @@ public class AccountPage extends HomePage {
 		PageFactory.initElements(myDriver, this);
 	}
 	
-	@FindBy(className = ".active")
+	@FindBy(xpath = ".//*[@id='myNavigation']/li[3]/a")
 	private WebElement myfavourites;
 	
 	//verify
 	@FindBy(css = ".leftColumn #myNavigation li:nth-of-type(1)")
 	private WebElement accountpageverify;
 	
-	@FindBy(className = ".removeSelectedProduct")
+	@FindBy(xpath = ".//*[@id='watchList']/tbody/tr/td[7]/a")
 	private WebElement cancelfavourite;
 	
-	@FindBy(className = ".emptyWatchList.hiddentext")
+	@FindBy(xpath = ".//*[@id='watchList']/tbody/tr/td") 
 	private WebElement verifynoproduct;
 	
 	public AccountPage clickMyFavourites() {
@@ -39,7 +39,7 @@ public class AccountPage extends HomePage {
 		return this;		
 	}  
 	
-	public AccountPage verifyPage() {
+	public AccountPage verifyAccountPage() {
 		Assert.assertEquals("Sipariş Durumu", accountpageverify.getText());
 		return this;		
 	}

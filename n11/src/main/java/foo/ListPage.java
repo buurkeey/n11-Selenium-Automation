@@ -36,7 +36,7 @@ public class ListPage extends HomePage{
 	private WebElement accountbtn;
 	
 	
-	public ListPage verifyPage() {
+	public ListPage verifyFirstListPage() {
 		Assert.assertEquals("Samsung", verifylistpage.getText());
 		return this;		
 	}
@@ -53,7 +53,7 @@ public class ListPage extends HomePage{
 		return this;		
 	}
 	
-	/*public ListPage verify2ndPage() {
+	/*public ListPage verifysecondPage() {
 		Assert.assertEquals("2", secondlistpageverify.getAttribute(name));
 		return this;
 	}*/
