@@ -1,4 +1,4 @@
-package foo;
+package com.burak.n11test;
 
 import junit.framework.Assert;
 
@@ -9,6 +9,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.JavascriptExecutor;
+
+import com.burak.n11.AccountPage;
+import com.burak.n11.Factory;
+import com.burak.n11.HomePage;
+import com.burak.n11.ListPage;
+import com.burak.n11.LogInPage;
 
 public class TestCase04Samsung {
 	

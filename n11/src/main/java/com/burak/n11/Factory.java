@@ -1,4 +1,4 @@
-package foo;
+package com.burak.n11;
 
 import junit.framework.Assert;
 

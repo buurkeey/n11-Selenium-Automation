@@ -1,10 +1,14 @@
-package foo;
+package com.burak.n11test;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.burak.n11.FacebookPage;
+import com.burak.n11.HomePage;
+import com.burak.n11.LogInPage;
 
 public class TestCase01FacebookLoginTest {
 
