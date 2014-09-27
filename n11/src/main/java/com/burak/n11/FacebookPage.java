@@ -28,7 +28,7 @@ public class FacebookPage extends HomePage {
 	@FindBy(id = "u_0_1")
 	private WebElement fbLoginBtn;
 	
-	@FindBy(className = ".uiInputLabelLabel")
+	@FindBy(id = "homelink")
 	private WebElement verifyPage;
 	
 	public FacebookPage typeFbEmail(String userFbEmail) {
@@ -51,7 +51,7 @@ public class FacebookPage extends HomePage {
 	
 	//verify
 	public FacebookPage verifyFacebookPage() {
-		Assert.assertEquals("Oturumumu sürekli açık tut", verifyPage.getText());
+		Assert.assertEquals("Facebook", verifyPage.getText());
 		return this;		
 	}
 

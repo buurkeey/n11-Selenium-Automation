@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.burak.n11.Factory;
+import com.burak.n11.HomePage;
 
 public class TestCase03LogInTest {
 
@@ -26,17 +27,16 @@ public class TestCase03LogInTest {
 	@Test
 	public void LogInTestCase(){
 			
-		Factory factory = new Factory(driver);
+		HomePage homePage = new HomePage(driver);
+	
 				
-				factory.homePage()
-					   .openURL()
+			   homePage.openURL()
 					   .verifyHomePage()
 					   .clickHesabim()
 					   .typeEmail("n11buraktest@test.com")
 					   .typePassword("n11135790")
 					   .clickLogInBtn()
-					   .verifyHomePage();		
-		
+					   .verifyLoggedIn("Burak Test");		
 	}
 	
 }

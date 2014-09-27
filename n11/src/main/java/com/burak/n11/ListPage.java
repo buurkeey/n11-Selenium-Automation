@@ -3,6 +3,7 @@ package com.burak.n11;
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,12 +25,6 @@ public class ListPage extends HomePage{
 	@FindBy(css = ".resultText h1:nth-of-type(1)")
 	private WebElement verifylistpage;
 	
-	@FindBy(css = ".productArea .pagination a:nth-of-type(2)")
-	private WebElement secondlistpage;
-	
-	/*@FindBy(xpath = ".//*[@id='contentListing']/div/div/div[2]/section/div[1]/div[2]/div/input")
-	private WebElement secondlistpageverify;*/
-	
 	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn") 
 	private WebElement follow;
 	
@@ -37,27 +32,29 @@ public class ListPage extends HomePage{
 	private WebElement accountbtn;
 	
 	
-	public ListPage verifyFirstListPage() {
-		Assert.assertEquals("Samsung", verifylistpage.getText());
+	public ListPage verifySearch(String product) {
+		Assert.assertEquals(product, verifylistpage.getText());
 		return this;		
 	}
 	
-	public ListPage clicksecondPage() {
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(secondlistpage));
-		secondlistpage.click();
+	public ListPage selectSearchPagination(String pageNumber) {
+		WebElement listPage = driver.findElement(By.linkText(pageNumber));
+		listPage.click();
 		return this;		
 	}
 	
-	public ListPage clickFavouriteBtn() {
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(follow));
-		follow.click();
+	public ListPage clickFavouriteBtn(String itemNumber) {
+		WebElement product = driver.findElement(By.cssSelector("#view li:nth-of-type("+itemNumber+") .textImg.followBtn"));
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0,250);");
+		product.click();
 		return this;		
 	}
 	
-	/*public ListPage verifySecondPage() {
-		Assert.assertEquals("2", secondlistpageverify.getText());
+	public ListPage verifyListPage(String pageNumber) {
+		WebElement pNumber = driver.findElement(By.cssSelector(".header .currentPage"));
+		Assert.assertEquals(pageNumber, pNumber.getAttribute("value"));
 		return this;
-	}	*/
+	}
 	
 	public AccountPage clickMyAccountFromListPage() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(accountbtn));

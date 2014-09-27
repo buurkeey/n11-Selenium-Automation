@@ -49,10 +49,10 @@ public class LogInPage extends HomePage {
 		return this;
 	}
 	
-	public LogInPage clickLogInBtn() {
+	public HomePage clickLogInBtn() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(logInBtn));
 		logInBtn.click();
-		return this;
+		return new HomePage(driver);
 	}
 	
 	public LogInPage clickFbLogin() {

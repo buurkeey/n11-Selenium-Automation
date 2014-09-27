@@ -38,8 +38,9 @@ public class HomePage {
 	@FindBy(linkText = "//www.n11.com/hesabim")
 	private WebElement accountbtn;
 	
-	/*					@FindBy(xpath = ".//*[@id='header']/div/div/div[2]/div[2]/div[1]/div[1]/a[2]")
-						private WebDriver verifyFbLogIn;														*/
+	//verifyloggedin
+	@FindBy(className = "username")
+	private WebElement verifylogin;
 	
 	public LogInPage clickHesabim() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(loginbtn));
@@ -53,7 +54,7 @@ public class HomePage {
 		return this;
 	}
 	
-	public HomePage typeSearhData(String searchData) {
+	public HomePage searchItem(String searchData) {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(data));
 		data.sendKeys(searchData);
 		return this;
@@ -65,11 +66,10 @@ public class HomePage {
 		return new ListPage(driver);
 	}
 	
-	/*		public HomePage verifyFbLoggedIn() {
-			Assert.assertEquals("Burak Test", verifyFbLogIn.gettext());
-			return this;
-			
-	}		*/
+	public HomePage verifyLoggedIn(String username) {
+		Assert.assertEquals(username, verifylogin.getText());
+		return this;			
+	}
 	
 	public HomePage clickMyAccount() {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(accountbtn));

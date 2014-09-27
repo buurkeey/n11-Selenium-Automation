@@ -50,8 +50,7 @@ public class TestCase01FacebookLoginTest {
 					facebookpage.clickFbLoginBtn();
 					driver.switchTo().window(winHandleBefore);
 					Thread.sleep(5000);
-					homepage.verifyHomePage();
-			
+					homepage.verifyLoggedIn("Burak Test");			
 		}	
 
 }

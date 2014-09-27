@@ -28,8 +28,8 @@ public class TestCase02HomePage {
 	
 		HomePage homePage = new HomePage(driver);
 		
-				 homePage.openURL();
-				 homePage.verifyHomePage();
+				 homePage.openURL()
+				 		 .verifyHomePage();
 		}
 	
 }

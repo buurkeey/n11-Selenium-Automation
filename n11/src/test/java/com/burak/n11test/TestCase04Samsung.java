@@ -39,8 +39,7 @@ public class TestCase04Samsung {
 		ListPage listPage = new ListPage(driver);
 		LogInPage loginPage = new LogInPage(driver);
 		AccountPage accountPage = new AccountPage(driver);
-		Factory factory = new Factory(driver);
-		
+				
 				 homePage.openURL();
 				 homePage.verifyHomePage();
 				 homePage.clickHesabim();
@@ -48,26 +47,17 @@ public class TestCase04Samsung {
 				 loginPage.typeEmail("n11buraktest@test.com");
 				 loginPage.typePassword("n11135790");
 				 loginPage.clickLogInBtn();	
-				 homePage.verifyHomePage();
-				 homePage.typeSearhData("samsung");
+				 homePage.verifyLoggedIn("Burak Test");
+				 homePage.searchItem("samsung");
 				 homePage.clickSearchBtn();
-				 listPage.verifyFirstListPage();
-				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
-				 Thread.sleep(2000);
-				 listPage.clicksecondPage();
-				 Thread.sleep(5000);
-				 				 
-				//buraya 2.sayfada olunduğunun assertü eklenecek
-				 
-				 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,250);");
-				 Thread.sleep(2000);
-				 
+				 listPage.verifySearch("Samsung");
+				 listPage.selectSearchPagination("2");
+				 listPage.verifyListPage("2");
 				 listPage.getProductURLFromList();				 
-				 listPage.clickFavouriteBtn();
+				 listPage.clickFavouriteBtn("3");
 				 listPage.clickMyAccountFromListPage();
 				 accountPage.verifyAccountPage();
 				 accountPage.clickMyFavourites();
-				 Thread.sleep(2000);
 				 accountPage.getProductURLFromAccount();
 				 
 				 //listedeki ürünle favorilerimdeki ürünün urllerini alabiliyorum ama karşılaştırmasını yapamadım
