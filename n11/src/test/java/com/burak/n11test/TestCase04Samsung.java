@@ -10,9 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.JavascriptExecutor;
-
 import com.burak.n11.AccountPage;
-import com.burak.n11.Factory;
 import com.burak.n11.HomePage;
 import com.burak.n11.ListPage;
 import com.burak.n11.LogInPage;
@@ -59,8 +57,8 @@ public class TestCase04Samsung {
 				 
 				 //3.sırada tıklanan ürünün url'ini followListPage'e atıyorum.
 				 
-				 followListPage = listPage.getFirstURL("3");				 
-				 //listPage.getProductURLFromList("3");				 
+				 followListPage = listPage.getFirstURL("3");
+				 
 				 listPage.clickFavouriteBtn("3");
 				 listPage.clickMyAccountFromListPage();
 				 accountPage.verifyAccountPage();
@@ -69,8 +67,6 @@ public class TestCase04Samsung {
 				 //Favorilerimdeki ürünün url'ini followAccountPage'e atıyorum.
 				 
 				 followAccountPage = accountPage.getSecondURL();
-				 
-				 //accountPage.getProductURLFromAccount();
 				 
 				 //Favori sayfasındaki ürün ile bir önceki sayfada izlemeye
 				 //alınmış ürünün aynı ürün olduğunu doğrulatıyorum.

@@ -60,11 +60,5 @@ public class AccountPage extends HomePage {
 		String sURL = driver.findElement(By.xpath(".//*[@id='watchList']/tbody/tr/td[3]/p/a")).getAttribute("href");
 		return sURL;		
 	}
-	
-	public AccountPage getProductURLFromAccount() {
-		getSecondURL();
-		System.out.println(getSecondURL());
-		return this;		
-	}
 
 }

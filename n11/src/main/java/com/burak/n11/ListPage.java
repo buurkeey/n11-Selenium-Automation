@@ -66,12 +66,5 @@ public class ListPage extends HomePage{
 		String fURL = driver.findElement(By.cssSelector("#view li:nth-of-type("+number+") .oldPrice")).getAttribute("href");
 		return fURL;		
 	}
-	
-	public ListPage getProductURLFromList(String number) {
-		getFirstURL(number);
-		System.out.println(getFirstURL(number));
-		return this;
-	}
-	
-	
+		
 }

@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.burak.n11.Factory;
 import com.burak.n11.HomePage;
 
 public class TestCase03LogInTest {
