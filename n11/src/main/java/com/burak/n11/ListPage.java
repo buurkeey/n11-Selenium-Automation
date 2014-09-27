@@ -23,7 +23,7 @@ public class ListPage extends HomePage{
 	
 	//verify
 	@FindBy(css = ".resultText h1:nth-of-type(1)")
-	private WebElement verifylistpage;
+	private WebElement verifylist;
 	
 	@FindBy(css = "#view li:nth-of-type(3) .textImg.followBtn") 
 	private WebElement follow;
@@ -33,7 +33,7 @@ public class ListPage extends HomePage{
 	
 	
 	public ListPage verifySearch(String product) {
-		Assert.assertEquals(product, verifylistpage.getText());
+		Assert.assertEquals(product, verifylist.getText());
 		return this;		
 	}
 	
@@ -62,9 +62,14 @@ public class ListPage extends HomePage{
 		return new AccountPage(driver);
 	}	
 	
-	public ListPage getProductURLFromList() {
-		String firstlink = driver.findElement(By.cssSelector("#view li:nth-of-type(3) .oldPrice")).getAttribute("href");
-		System.out.println(firstlink);
+	public String getFirstURL(String number) {
+		String fURL = driver.findElement(By.cssSelector("#view li:nth-of-type("+number+") .oldPrice")).getAttribute("href");
+		return fURL;		
+	}
+	
+	public ListPage getProductURLFromList(String number) {
+		getFirstURL(number);
+		System.out.println(getFirstURL(number));
 		return this;
 	}
 	

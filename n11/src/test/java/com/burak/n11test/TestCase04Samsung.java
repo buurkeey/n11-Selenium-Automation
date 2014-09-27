@@ -2,6 +2,7 @@ package com.burak.n11test;
 
 import junit.framework.Assert;
 
+import org.apache.commons.lang3.ObjectUtils.Null;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,8 @@ public class TestCase04Samsung {
 	
 	WebDriver driver;
 	JavascriptExecutor jse = (JavascriptExecutor)driver;	
+	String followListPage;
+	String followAccountPage;
 	
 	@Before
 	public void setUp(){
@@ -52,17 +55,28 @@ public class TestCase04Samsung {
 				 homePage.clickSearchBtn();
 				 listPage.verifySearch("Samsung");
 				 listPage.selectSearchPagination("2");
-				 listPage.verifyListPage("2");
-				 listPage.getProductURLFromList();				 
+				 listPage.verifyListPage("2");	
+				 
+				 //3.sırada tıklanan ürünün url'ini followListPage'e atıyorum.
+				 
+				 followListPage = listPage.getFirstURL("3");				 
+				 //listPage.getProductURLFromList("3");				 
 				 listPage.clickFavouriteBtn("3");
 				 listPage.clickMyAccountFromListPage();
 				 accountPage.verifyAccountPage();
 				 accountPage.clickMyFavourites();
-				 accountPage.getProductURLFromAccount();
 				 
-				 //listedeki ürünle favorilerimdeki ürünün urllerini alabiliyorum ama karşılaştırmasını yapamadım
-				 //buraya karşılaştırılmasını yapan bir metod lazım
+				 //Favorilerimdeki ürünün url'ini followAccountPage'e atıyorum.
 				 
+				 followAccountPage = accountPage.getSecondURL();
+				 
+				 //accountPage.getProductURLFromAccount();
+				 
+				 //Favori sayfasındaki ürün ile bir önceki sayfada izlemeye
+				 //alınmış ürünün aynı ürün olduğunu doğrulatıyorum.
+				 
+				 Assert.assertEquals(followListPage, followAccountPage);
+				 				 
 				 accountPage.clickCancelFavourite();
 				 accountPage.verifyNonFavouriteProduct();
 		

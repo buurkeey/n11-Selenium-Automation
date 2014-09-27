@@ -31,7 +31,7 @@ public class AccountPage extends HomePage {
 	@FindBy(xpath = ".//*[@id='watchList']/tbody/tr/td[7]/a")
 	private WebElement cancelfavourite;
 	
-	@FindBy(xpath = ".//*[@id='watchList']/tbody/tr/td") 
+	@FindBy(css = ".emptyWatchList.hiddentext") 
 	private WebElement verifynoproduct;
 	
 	public AccountPage clickMyFavourites() {
@@ -56,9 +56,14 @@ public class AccountPage extends HomePage {
 		return this;		
 	}
 	
+	public String getSecondURL() {
+		String sURL = driver.findElement(By.xpath(".//*[@id='watchList']/tbody/tr/td[3]/p/a")).getAttribute("href");
+		return sURL;		
+	}
+	
 	public AccountPage getProductURLFromAccount() {
-		String secondlink = driver.findElement(By.xpath(".//*[@id='watchList']/tbody/tr/td[3]/p/a")).getAttribute("href");
-		System.out.println(secondlink);
+		getSecondURL();
+		System.out.println(getSecondURL());
 		return this;		
 	}
 
