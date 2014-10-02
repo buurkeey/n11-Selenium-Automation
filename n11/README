@@ -1,0 +1,8 @@
+This project has 4 different test cases for "www.n11.com".
+
+TestCase01 tests to login with Facebook account and verifies that user has logged in.
+TestCase02 tests to open main page and verifies.
+TestCase03 tests to login with a valid user mail and a valid password.
+TestCase04 tests to search a porduct and add favourite box. All steps verified by JUnit.
+
+This project was made with Page Factory design.
