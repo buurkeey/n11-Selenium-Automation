@@ -5,4 +5,4 @@ TestCase02 tests to open main page and verifies.
 TestCase03 tests to login with a valid user mail and a valid password.
 TestCase04 tests to search a product and add favourite box. All steps verified by JUnit.
 
-This project was made with Page Factory design.
+This project was made with Page Object Pattern.
